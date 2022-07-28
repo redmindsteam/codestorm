@@ -6,4 +6,11 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Folder Include="Interfaces\" />
+    <Folder Include="Checkers\" />
+    <Folder Include="Helpers\" />
+    <Folder Include="Base\" />
+  </ItemGroup>
+
 </Project>
