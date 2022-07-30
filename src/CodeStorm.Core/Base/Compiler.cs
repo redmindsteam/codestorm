@@ -26,7 +26,7 @@ internal class Compiler : BaseEngine, ICompiler
             process.Start();
             process.BeginOutputReadLine();
             process.BeginErrorReadLine();
-            process.WaitForExit();
+            await process.WaitForExitAsync();
             stopwatch.Stop();
             process.Kill();
             result.ErrorMessage = errorOut.ToString();

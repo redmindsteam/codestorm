@@ -32,6 +32,18 @@ namespace CodeStorm.Core.Helpers
                     }
                 }
             }
+            else if (OperatingSystem.IsLinux())
+            {
+                try
+                {
+                    Process proc = Process.GetProcessById(processId);
+                    if (!proc.HasExited) proc.Kill();
+                }
+                catch (ArgumentException)
+                {
+                    // Process already exited.
+                }
+            }
             else throw new Exception("KillAllProcessHierarchy doesn't impliment for other operation system");
         }
     }
