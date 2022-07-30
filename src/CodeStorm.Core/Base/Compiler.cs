@@ -6,7 +6,7 @@ using System.Text;
 
 namespace CodeStorm.Core.Base;
 
-public class Compiler : BaseEngine, ICompiler
+internal class Compiler : BaseEngine, ICompiler
 {
     public async Task<CompilationResult> CompileAsync(string compilerName, 
         string compileArgs, string compiledFilePath)

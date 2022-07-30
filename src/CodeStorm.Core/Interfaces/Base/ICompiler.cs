@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace CodeStorm.Core.Interfaces.Base
 {
-    public interface ICompiler
+    internal interface ICompiler
     {
         /// <summary>
         /// Build .exe or dll or ... 

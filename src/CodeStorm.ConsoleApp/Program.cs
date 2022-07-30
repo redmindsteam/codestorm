@@ -7,12 +7,12 @@ class Program
 {
     public static async Task Main(string[] args)
     {
-        string sourceCode = "d://cpp.cpp";
-        string compiledFilePath = "d://cpp.exe";
-        ICompiler compiler = new Compiler();
-        var result = await compiler.CompileAsync("g++", $"-o \"{compiledFilePath}\" \"{sourceCode}\"", compiledFilePath);
-        Console.WriteLine("Natija : " + result.IsCompiled);
-        Console.WriteLine("Errorlar :" + result.ErrorMessage);
-        Console.WriteLine("Vaqt : "+result.CompilationTime);
+        IRunner runner = new Runner();
+        var result = await runner.RunAsync("d://test.exe", "", "5 5 5");
+        Console.WriteLine("Status : " + result.IsSuccessful);
+        Console.WriteLine("Output : " + result.Result);
+        Console.WriteLine("Error : "+ result.ErrorMessage);
+        Console.WriteLine("Vaqt : "+ result.ExecutionTime);
+        Console.WriteLine("Xotira : " + result.MemoryUsage);
     }
 }
