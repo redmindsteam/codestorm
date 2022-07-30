@@ -15,7 +15,7 @@ namespace CodeStorm.Core.Base
         // for collect from cmd errors during process
         private IList<string> _errors = new List<string>();
 
-        public async Task<RunnerResult> RunAsync(string runnerName, 
+        public async Task<RunnerResult> RunAsync(string runnerName,
             string runnerArgs, string input)
         {
             var result = new RunnerResult();

@@ -9,13 +9,13 @@
         Waiting = -2,
         Compiling,
         Running,
-        Accepted ,
-        WrongAnswer ,
+        Accepted,
+        WrongAnswer,
         CompileError,
         TimeLimitExceeded,
         MemoryLimitExceeded,
         PresentationError,
-        RuntimeError ,
+        RuntimeError,
         UnknownError
     }
 }

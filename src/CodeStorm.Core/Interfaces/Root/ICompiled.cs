@@ -25,8 +25,7 @@
         /// Executor run qilishi uchun foydalanadigan dastur nomi
         /// Masalan: java uchun java.exe, cpp uchun 'name'.exe
         /// </summary>
-        /// <returns></returns>
-        string GetRunnerName();
+        string GetRunnerName(string compiledFilePath);
 
         /// <summary>
         /// Har bir test uchun kompilatsiya bo'lgan dasturni ishga tushiruvchi argumentlar

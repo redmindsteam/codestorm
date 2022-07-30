@@ -8,7 +8,7 @@ namespace CodeStorm.Core.Base;
 
 internal class Compiler : BaseEngine, ICompiler
 {
-    public async Task<CompilationResult> CompileAsync(string compilerName, 
+    public async Task<CompilationResult> CompileAsync(string compilerName,
         string compileArgs, string compiledFilePath)
     {
         var result = new CompilationResult();

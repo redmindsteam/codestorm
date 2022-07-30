@@ -11,8 +11,8 @@ class Program
         var result = await runner.RunAsync("d://test.exe", "", "5 5 5");
         Console.WriteLine("Status : " + result.IsSuccessful);
         Console.WriteLine("Output : " + result.Result);
-        Console.WriteLine("Error : "+ result.ErrorMessage);
-        Console.WriteLine("Vaqt : "+ result.ExecutionTime);
+        Console.WriteLine("Error : " + result.ErrorMessage);
+        Console.WriteLine("Vaqt : " + result.ExecutionTime);
         Console.WriteLine("Xotira : " + result.MemoryUsage);
     }
 }

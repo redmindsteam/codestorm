@@ -4,17 +4,14 @@ namespace CodeStorm.Core.Checkers.Tools
 {
     internal class CppChecker : ICompiled
     {
-        public string GetCompilerName()=> "g++";
+        public string GetCompilerName() => "g++";
 
         public string GetCompilerArgs(string sourceCodeFilePath, string compiledFilePath)
             => $"-o \"{compiledFilePath}\" \"{sourceCodeFilePath}\" ";
 
-        public string GetRunnerName() => "";
+        public string GetRunnerName(string compiledFilePath) => compiledFilePath;
 
-        public string GetRunnerArgs(string compiledFilePath)
-        {
-            throw new NotImplementedException();
-        }
+        public string GetRunnerArgs(string compiledFilePath) => "";
 
         public string GetCompiledFileName(string filename)
         {
