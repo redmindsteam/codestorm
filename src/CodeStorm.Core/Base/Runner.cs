@@ -1,7 +1,7 @@
-﻿using CodeStorm.Core.Helpers;
+﻿using CodeStorm.Core.Analyzers;
+using CodeStorm.Core.Helpers;
 using CodeStorm.Core.Interfaces.Base;
 using CodeStorm.Domain.Common;
-using CodeStorm.Domain.Constants;
 using CodeStorm.Domain.TransferModels;
 using System.Diagnostics;
 using System.Text;
@@ -10,6 +10,9 @@ namespace CodeStorm.Core.Base
 {
     public class Runner : BaseEngine, IRunner
     {
+        private readonly ushort timeLimit;
+        private readonly uint memoryLimit;
+
         // for collect from cmd input value
         private StringBuilder resultStringBuilder = new StringBuilder();
 
@@ -36,24 +39,35 @@ namespace CodeStorm.Core.Base
             };
             process.StartInfo.FileName = runnerName;
             process.StartInfo.Arguments = runnerArgs;
+            this.timeLimit = timeLimit;
+            this.memoryLimit = memoryLimit;
         }
 
         public async Task<RunnerResult> RunAsync(string input)
         {
+            // Start All Analyzers
             var result = new RunnerResult();
-            stopwatch.Restart();
-
+            MemoryAnalyzer memoryAnalyzer = new MemoryAnalyzer(memoryLimit);
+            
+            // Begin Process
             process.Start();
+            memoryAnalyzer.Start(process.Id);
+            stopwatch.Restart();
             await process.StandardInput.WriteLineAsync(input);
             process.BeginOutputReadLine();
             process.BeginErrorReadLine();
-            process.WaitForExitAsync().Wait(EngineConstants.ENGINE_MAX_WAIT_TIME);
+            process.WaitForExitAsync().Wait(timeLimit);
+            
+            // Stop Analyzers
             stopwatch.Stop();
+            memoryAnalyzer.Stop();
 
+            // Get Result
             string output = resultStringBuilder.ToString().Trim();
             string error = errorStringBuilder.ToString().Trim();
             result.Result = output;
             result.ExecutionTime = (ushort)stopwatch.ElapsedMilliseconds;
+            result.MemoryUsage = memoryAnalyzer.TotalMemoryUsage;
             if (string.IsNullOrEmpty(error)) result.IsSuccessful = true;
             else
             {
