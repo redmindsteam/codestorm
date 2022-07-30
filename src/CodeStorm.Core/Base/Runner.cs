@@ -21,7 +21,7 @@ namespace CodeStorm.Core.Base
         private Stopwatch stopwatch = new Stopwatch();
 
         public Runner(string runnerName, string runnerArgs, 
-            ushort memoryLimit, ushort timeLimit)
+            uint memoryLimit, ushort timeLimit)
         {
             process.StartInfo = _processInfo;
             process.OutputDataReceived += (obj, e) =>
@@ -53,7 +53,7 @@ namespace CodeStorm.Core.Base
             string output = resultStringBuilder.ToString().Trim();
             string error = errorStringBuilder.ToString().Trim();
             result.Result = output;
-            result.ExecutionTime = (int)stopwatch.ElapsedMilliseconds;
+            result.ExecutionTime = (ushort)stopwatch.ElapsedMilliseconds;
             if (string.IsNullOrEmpty(error)) result.IsSuccessful = true;
             else
             {

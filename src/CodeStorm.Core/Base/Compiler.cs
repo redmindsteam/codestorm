@@ -30,7 +30,7 @@ internal class Compiler : BaseEngine, ICompiler
             stopwatch.Stop();
             process.Kill();
             result.ErrorMessage = errorOut.ToString();
-            result.CompilationTime = stopwatch.ElapsedMilliseconds;
+            result.CompilationTime = (ushort) stopwatch.ElapsedMilliseconds;
         }
         if (File.Exists(compiledFilePath)) result.IsCompiled = true;
         else result.IsCompiled = false;

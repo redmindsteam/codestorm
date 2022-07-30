@@ -22,13 +22,13 @@
 
         /// <summary>
         /// User source code run qilinganda har bir kiritilgan input uchun 
-        /// 'lchov birligi millisecondlarda o'lchanadi
+        /// o'lchov birligi millisecondlarda o'lchanadi
         /// </summary>
-        public int ExecutionTime { get; set; }
+        public ushort ExecutionTime { get; set; }
 
         /// <summary>
         /// Har bir test uchun xotira sarfi
         /// </summary>
-        public int MemoryUsage { get; set; }
+        public uint MemoryUsage { get; set; }
     }
 }

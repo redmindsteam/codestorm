@@ -16,6 +16,6 @@
         /// Kompilatsiya qilish uchun ketgan vaqt
         /// o'lchov birligi millisecond larda
         /// </summary>
-        public double CompilationTime { get; set; }
+        public ushort CompilationTime { get; set; }
     }
 }

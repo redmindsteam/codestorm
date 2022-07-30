@@ -15,7 +15,7 @@ namespace CodeStorm.Domain.Models
         /// <summary>
         /// Yuborilgan kod nechta testdan o'tganligini bildiradi
         /// </summary>
-        public int TestNumber { get; set; }
+        public ushort TestNumber { get; set; }
 
         /// <summary>
         /// Dasturni kompilatsiya qilishda va testlashda chiqqan xatolar uchun
@@ -27,15 +27,15 @@ namespace CodeStorm.Domain.Models
         /// input qiymat kirishi va output qaytarishi orasidagi vaqtlar o'lchanadi
         /// o'lchov birligi - millisecond larda
         /// </summary>
-        public Dictionary<int, long> ProcessingTimes { get; set; }
-            = new Dictionary<int, long>();
+        public Dictionary<ushort, ushort> ProcessingTimes { get; set; }
+            = new Dictionary<ushort, ushort>();
 
         /// <summary>
         /// Yuborilgan kodni har bir test qilinganda
         /// foydalanuvchi kodi har bir test uchun ishlatadigan xotira hajmi o'lchanadi
-        /// o'lchov birligi - Kb larda
+        /// o'lchov birligi - KB larda
         /// </summary>
-        public Dictionary<int, long> MemoryUsages { get; set; }
-            = new Dictionary<int, long>();
+        public Dictionary<ushort, uint> MemoryUsages { get; set; }
+            = new Dictionary<ushort, uint>();
     }
 }

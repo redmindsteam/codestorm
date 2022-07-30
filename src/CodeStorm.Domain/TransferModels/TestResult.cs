@@ -6,13 +6,22 @@ namespace CodeStorm.Domain.TransferModels
     {
         public ResultType ResultType { get; set; }
 
-        public int AcceptedTestNumber { get; set; } = 0;
+        public ushort AcceptedTestNumber { get; set; } = 0;
 
-        public Dictionary<int, long> ProcessingTimes { get; set; }
-            = new Dictionary<int, long>();
+        /// Yuborilgan kodni har bir test qilinganda 
+        /// input qiymat kirishi va output qaytarishi orasidagi vaqtlar o'lchanadi
+        /// o'lchov birligi - millisecond larda
+        /// </summary>
+        public Dictionary<ushort, ushort> ProcessingTimes { get; set; }
+            = new Dictionary<ushort, ushort>();
 
-        public Dictionary<int, long> MemoryUsages { get; set; }
-            = new Dictionary<int, long>();
+        /// <summary>
+        /// Yuborilgan kodni har bir test qilinganda
+        /// foydalanuvchi kodi har bir test uchun ishlatadigan xotira hajmi o'lchanadi
+        /// o'lchov birligi - KB larda
+        /// </summary>
+        public Dictionary<ushort, uint> MemoryUsages { get; set; }
+            = new Dictionary<ushort, uint>();
 
         public string ErrorMessage { get; set; } = String.Empty;
     }

@@ -21,9 +21,9 @@
         /// va undan xoxlagancha ajrata olmaydi 
         /// eng katta oladigan qiymat dastur tomonidan belgilangan
         /// undan katta qiymat ololmaydi
-        /// o'lchov birligi MB larda
+        /// o'lchov birligi KB larda
         /// </summary>
-        public const ushort ENGINE_MAX_USAGE_MEMORY = 512;
+        public const uint ENGINE_MAX_USAGE_MEMORY = 524288;
 
         /// <summary>
         /// Foydalanuvchi xoxlagancha kod kiritmasligi kerak

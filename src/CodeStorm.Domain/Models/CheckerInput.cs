@@ -30,9 +30,9 @@
 
         /// <summary>
         /// Har bir test uchun xotiradan ishlatilishi mumkin bo'lgan maksimum qiymat
-        /// o'lchov birligi MB larda
+        /// o'lchov birligi KB larda
         /// </summary>
-        public ushort MemoryLimit { get; set; }
+        public uint MemoryLimit { get; set; }
 
         /// <summary>
         /// Har bir test uchun ishlatilishi mumkin bo'lgan maksimum vaqt
