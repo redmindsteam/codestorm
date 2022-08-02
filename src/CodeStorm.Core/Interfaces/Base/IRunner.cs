@@ -2,7 +2,7 @@
 
 namespace CodeStorm.Core.Interfaces.Base
 {
-    public interface IRunner
+    internal interface IRunner
     {
         Task<RunnerResult> RunAsync(string input);
     }

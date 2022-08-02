@@ -7,16 +7,21 @@ class Program
 {
     public static async Task Main(string[] args)
     {
-        for(int i=5; i<15; i++)
-        {
-            IRunner runner = new Runner("d://cptest/1.exe", "", 16000, 2000);
-            var result = await runner.RunAsync(i+" "+i);
-            Console.WriteLine("Status : " + result.IsSuccessful);
-            Console.WriteLine("Output : " + result.Result);
-            Console.WriteLine("Error : " + result.ErrorMessage);
-            Console.WriteLine("Vaqt : " + result.ExecutionTime);
-            Console.WriteLine("Xotira : " + result.MemoryUsage);
-            Console.WriteLine();
-        }
+        string runnerName = "d:/cptest/stB.exe";
+        string runnerArgs = "";
+        uint memoryLimit = 16000;
+        ushort timeLimit = 1000;
+        DirectoryInfo problemSetDirectory = new DirectoryInfo("d://problemSets//stB");
+        ITester tester = new Tester(runnerName, runnerArgs, memoryLimit, timeLimit);
+        var result = await tester.TestAsync(problemSetDirectory);
+
+        Console.WriteLine(result.AcceptedTestNumber);
+        Console.WriteLine(result.ResultType.ToString());
+
+        Console.WriteLine("Times-->");
+        foreach (var i in result.ProcessingTimes) Console.WriteLine(i.Key+'-'+i.Value+" ms");
+
+        Console.WriteLine("Memories-->");
+        foreach (var i in result.MemoryUsages) Console.WriteLine(i.Key + '-' + i.Value + " KB");
     }
 }

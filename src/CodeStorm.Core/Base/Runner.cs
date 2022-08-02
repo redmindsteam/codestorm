@@ -8,7 +8,7 @@ using System.Text;
 
 namespace CodeStorm.Core.Base
 {
-    public class Runner : BaseEngine, IRunner
+    internal class Runner : BaseEngine, IRunner
     {
         private readonly ushort timeLimit;
         private readonly uint memoryLimit;
@@ -48,7 +48,7 @@ namespace CodeStorm.Core.Base
             // Start All Analyzers
             var result = new RunnerResult();
             MemoryAnalyzer memoryAnalyzer = new MemoryAnalyzer(memoryLimit);
-            
+
             // Begin Process
             process.Start();
             memoryAnalyzer.Start(process.Id);
@@ -57,7 +57,7 @@ namespace CodeStorm.Core.Base
             process.BeginOutputReadLine();
             process.BeginErrorReadLine();
             process.WaitForExitAsync().Wait(timeLimit);
-            
+
             // Stop Analyzers
             stopwatch.Stop();
             memoryAnalyzer.Stop();
