@@ -2,7 +2,7 @@
 
 namespace CodeStorm.Core.Interfaces.Base
 {
-    public interface ITester
+    internal interface ITester
     {
         Task<TestResult> TestAsync(DirectoryInfo problemSetDirectory);
     }
