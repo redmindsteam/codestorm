@@ -6,8 +6,11 @@ namespace CodeStorm.Core.Interfaces.Base
     {
         bool IsCompiledLanguage(string language);
 
+        bool IsSupportableLanguage(string language);
+
         IInterpreted GetInterpretedChecker(string language);
 
         ICompiled GetCompiledChecker(string language);
+
     }
 }

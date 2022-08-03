@@ -12,8 +12,8 @@
         /// <summary>
         /// Har bir test uchun source code ishga tushiruvchi argumentlar
         /// </summary>
-        /// <param name="compiledFilePath"></param>
+        /// <param name="sourceCodeFilePath"></param>
         /// <returns></returns>
-        string GetRunnerArgs(string compiledFilePath);
+        string GetRunnerArgs(string sourceCodeFilePath);
     }
 }

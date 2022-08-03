@@ -10,12 +10,7 @@ namespace CodeStorm.Domain.Models
         /// <summary>
         /// Source code ni testlardan o'tkazilgandagi natijani qaytaradi
         /// </summary>
-        public ResultType Result { get; set; }
-
-        /// <summary>
-        /// Yuborilgan kod nechta testdan o'tganligini bildiradi
-        /// </summary>
-        public ushort TestNumber { get; set; }
+        public string Result { get; set; } = String.Empty;
 
         /// <summary>
         /// Dasturni kompilatsiya qilishda va testlashda chiqqan xatolar uchun

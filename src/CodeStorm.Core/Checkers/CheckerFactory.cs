@@ -36,5 +36,12 @@ namespace CodeStorm.Core.Checkers
             if (_compiledCheckers.ContainsKey(language)) return true;
             else return false;
         }
+
+        public bool IsSupportableLanguage(string language)
+        {
+            if (_compiledCheckers.Keys.Contains(language)) return true;
+            else if (_interpretedCheckers.Keys.Contains(language)) return true;
+            else return false;
+        }
     }
 }
