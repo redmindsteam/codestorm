@@ -7,11 +7,11 @@ class Program
 {
     public static async Task Main(string[] args)
     {
-        string runnerName = "d:/cptest/stB.exe";
+        string runnerName = "d:/cptest/a+b.exe";
         string runnerArgs = "";
         uint memoryLimit = 16000;
         ushort timeLimit = 1000;
-        DirectoryInfo problemSetDirectory = new DirectoryInfo("d://problemSets//stB");
+        DirectoryInfo problemSetDirectory = new DirectoryInfo("d://problemSets//a+b");
         ITester tester = new Tester(runnerName, runnerArgs, memoryLimit, timeLimit);
         var result = await tester.TestAsync(problemSetDirectory);
 

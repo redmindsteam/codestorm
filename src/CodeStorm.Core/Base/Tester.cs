@@ -34,14 +34,10 @@ namespace CodeStorm.Core.Base
                 string output = await File.ReadAllTextAsync(outputPath);
                 var runnerResult = await runner.RunAsync(input);
 
-                if (!runnerResult.IsSuccessful)
+                if (!runnerResult.IsSuccessful && String.IsNullOrEmpty(runnerResult.ErrorMessage))
                 {
                     result.ResultType = ResultType.RuntimeError;
-                    return result;
-                }
-                else if (runnerResult.Result != output)
-                {
-                    result.ResultType = ResultType.WrongAnswer;
+                    result.ErrorMessage = runnerResult.ErrorMessage;
                     return result;
                 }
                 else if (runnerResult.ExecutionTime >= timeLimit)
@@ -52,6 +48,16 @@ namespace CodeStorm.Core.Base
                 else if (runnerResult.MemoryUsage >= memoryLimit)
                 {
                     result.ResultType = ResultType.MemoryLimitExceeded;
+                    return result;
+                }
+                else if (runnerResult.Result != output)
+                {
+                    result.ResultType = ResultType.WrongAnswer;
+                    return result;
+                }
+                else if (String.IsNullOrEmpty(runnerResult.Result))
+                {
+                    result.ResultType = ResultType.PresentationError;
                     return result;
                 }
                 else

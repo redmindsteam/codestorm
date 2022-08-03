@@ -9,6 +9,7 @@ namespace CodeStorm.Core.Analyzers
         private bool isSuccessfull = true;
         private static bool isActive = true;
         private readonly uint memoryLimit;
+
         public uint TotalMemoryUsage { get => totalMemoryUsage; }
         public bool IsSuccessfull { get => isSuccessfull; }
         public MemoryAnalyzer(uint memoryLimit)
