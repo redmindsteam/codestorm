@@ -12,15 +12,10 @@ namespace CodeStorm.Core.Base
     {
         private readonly ushort timeLimit;
         private readonly uint memoryLimit;
-
-        // for collect from cmd input value
         private StringBuilder resultStringBuilder = new StringBuilder();
-
-        // for collect from cmd errors during process
         private StringBuilder errorStringBuilder = new StringBuilder();
 
         private Process process = new Process();
-
         private Stopwatch stopwatch = new Stopwatch();
 
         public Runner(string runnerName, string runnerArgs, 
@@ -45,24 +40,17 @@ namespace CodeStorm.Core.Base
 
         public async Task<RunnerResult> RunAsync(string input)
         {
-            // Start All Analyzers
             var result = new RunnerResult();
             MemoryAnalyzer memoryAnalyzer = new MemoryAnalyzer(memoryLimit);
-
-            // Begin Process
             process.Start();
+            await process.StandardInput.WriteLineAsync(input);
             memoryAnalyzer.Start(process.Id);
             stopwatch.Restart();
-            await process.StandardInput.WriteLineAsync(input);
             process.BeginOutputReadLine();
             process.BeginErrorReadLine();
             process.WaitForExitAsync().Wait(timeLimit);
-
-            // Stop Analyzers
             stopwatch.Stop();
             memoryAnalyzer.Stop();
-
-            // Get Result
             string output = resultStringBuilder.ToString().Trim();
             string error = errorStringBuilder.ToString().Trim();
             result.Result = output;

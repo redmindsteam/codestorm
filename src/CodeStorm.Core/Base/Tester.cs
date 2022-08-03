@@ -50,14 +50,14 @@ namespace CodeStorm.Core.Base
                     result.ResultType = ResultType.MemoryLimitExceeded;
                     return result;
                 }
-                else if (runnerResult.Result != output)
-                {
-                    result.ResultType = ResultType.WrongAnswer;
-                    return result;
-                }
                 else if (String.IsNullOrEmpty(runnerResult.Result))
                 {
                     result.ResultType = ResultType.PresentationError;
+                    return result;
+                }
+                else if (runnerResult.Result != output)
+                {
+                    result.ResultType = ResultType.WrongAnswer;
                     return result;
                 }
                 else
