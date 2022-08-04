@@ -18,18 +18,15 @@ namespace CodeStorm.Core.Helpers
                     Process proc = Process.GetProcessById(processId);
                     if (!proc.HasExited) proc.Kill();
                 }
-                catch (ArgumentException)
+                catch (ArgumentException exception)
                 {
-                    // Process already exited.
+                    throw new SystemException("There is an errer with ProcessHelper to killAllProcessHierarchy", exception);
                 }
 
-                if (processCollection != null)
+                if (processCollection is not null)
                 {
                     foreach (ManagementObject mo in processCollection)
-                    {
                         KillAllProcessHierarchy(Convert.ToInt32(mo["ProcessID"]));
-                        //kill child processes(also kills childrens of childrens etc.)
-                    }
                 }
             }
             else if (OperatingSystem.IsLinux())
@@ -39,12 +36,12 @@ namespace CodeStorm.Core.Helpers
                     Process proc = Process.GetProcessById(processId);
                     if (!proc.HasExited) proc.Kill();
                 }
-                catch (ArgumentException)
+                catch (ArgumentException exception)
                 {
-                    // Process already exited.
+                    throw new SystemException("There is an errer with ProcessHelper to killAllProcessHierarchy", exception);
                 }
             }
-            else throw new Exception("KillAllProcessHierarchy doesn't impliment for other operation system");
+            else throw new NotImplementedException("KillAllProcessHierarchy doesn't impliment for other operation system");
         }
     }
-}
+} 
