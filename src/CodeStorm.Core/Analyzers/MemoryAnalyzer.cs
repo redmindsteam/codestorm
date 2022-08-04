@@ -37,14 +37,14 @@ namespace CodeStorm.Core.Analyzers
                 while (isActive)
                 {
                     Process process = Process.GetProcessById(processId);
-                    if (!process.HasExited)
+                    if (!process.HasExited )
                     {
                         long currentMemory = process.PeakWorkingSet64 / 1024;
                         if (currentMemory >= memoryLimit)
                         {
                             isActive = false;
                             isSuccessfull = false;
-                            totalMemoryUsage += (ushort) currentMemory;
+                            totalMemoryUsage += (ushort)currentMemory;
                             ProcessHelper.KillAllProcessHierarchy(processId);
                         }
                         else
@@ -53,11 +53,12 @@ namespace CodeStorm.Core.Analyzers
                                 totalMemoryUsage = (uint)currentMemory;
                         }
                     }
+                    else break;
                 }
             }
             catch(Exception exception)
             {
-                //throw new SystemException("There is an error with MemoryAnalyzer", exception);
+                // throw new SystemException("There is an error with MemoryAnalyzer", exception);
             }
         }        
     }

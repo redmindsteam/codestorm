@@ -37,7 +37,7 @@ class Program
     {
         CheckerInput checkerInput = new CheckerInput()
         {
-            Language = "cpp",
+            Language = "c",
             MemoryLimit = 16000,
             TimeLimit = 2000,
             MissionPath = "d://CodeStormTest//MissionDirectory",
