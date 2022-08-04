@@ -1,5 +1,6 @@
 ﻿using CodeStorm.Core.Base;
 using CodeStorm.Core.Interfaces.Base;
+using CodeStorm.Domain.Exceptions;
 using CodeStorm.Domain.Models;
 using System.ComponentModel.DataAnnotations;
 
@@ -13,7 +14,7 @@ class Program
         {
             CheckWindowsAsync().Wait();
         }
-        catch(SystemException exception)
+        catch(SpecificSystemException exception)
         {
             Console.WriteLine("SystemException");
             Console.WriteLine(exception.Message);
@@ -41,7 +42,7 @@ class Program
             MemoryLimit = 16000,
             TimeLimit = 2000,
             MissionPath = "d://CodeStormTest//MissionDirectory",
-            SourceCodePath = "d://CodeStormTest//SourceCodes//1//Accepted//1.cpp",
+            SourceCodePath = "d://CodeStormTest//SourceCodes//1//Accepted//1.c",
             ProblemSetPath = "d://CodeStormTest//ProblemSets//a+b"
         };
         IChecker checker = new Checker();

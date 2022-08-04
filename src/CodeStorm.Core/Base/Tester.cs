@@ -31,6 +31,7 @@ namespace CodeStorm.Core.Base
                 string inputPath = Path.Combine(testDirs[i].FullName, NameConstants.INPUT_FILE_NAME);
                 string input = await File.ReadAllTextAsync(inputPath);
                 string outputPath = Path.Combine(testDirs[i].FullName, NameConstants.OUTPUT_FILE_NAME);
+                if (!File.Exists(outputPath)) throw new DirectoryNotFoundException();
                 string output = await File.ReadAllTextAsync(outputPath);
                 var runnerResult = await runner.RunAsync(input);
 

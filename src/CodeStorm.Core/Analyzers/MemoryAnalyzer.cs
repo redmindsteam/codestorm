@@ -1,5 +1,5 @@
 ﻿using CodeStorm.Core.Helpers;
-using System.ComponentModel.DataAnnotations;
+using CodeStorm.Domain.Exceptions;
 using System.Diagnostics;
 
 namespace CodeStorm.Core.Analyzers
@@ -37,7 +37,7 @@ namespace CodeStorm.Core.Analyzers
                 while (isActive)
                 {
                     Process process = Process.GetProcessById(processId);
-                    if (!process.HasExited )
+                    if (!process.HasExited)
                     {
                         long currentMemory = process.PeakWorkingSet64 / 1024;
                         if (currentMemory >= memoryLimit)
@@ -58,7 +58,7 @@ namespace CodeStorm.Core.Analyzers
             }
             catch(Exception exception)
             {
-                // throw new SystemException("There is an error with MemoryAnalyzer", exception);
+                throw new SpecificSystemException(this.GetType().Name,"There is an error with MemoryAnalyzer", exception);
             }
         }        
     }

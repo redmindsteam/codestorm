@@ -1,4 +1,5 @@
-﻿using System.Diagnostics;
+﻿using CodeStorm.Domain.Exceptions;
+using System.Diagnostics;
 using System.Management;
 
 namespace CodeStorm.Core.Helpers
@@ -20,7 +21,7 @@ namespace CodeStorm.Core.Helpers
                 }
                 catch (ArgumentException exception)
                 {
-                    throw new SystemException("There is an errer with ProcessHelper to killAllProcessHierarchy", exception);
+                    throw new SpecificSystemException("ProcessHelper", "There is an errer with ProcessHelper to killAllProcessHierarchy", exception);
                 }
 
                 if (processCollection is not null)
@@ -38,7 +39,7 @@ namespace CodeStorm.Core.Helpers
                 }
                 catch (ArgumentException exception)
                 {
-                    throw new SystemException("There is an errer with ProcessHelper to killAllProcessHierarchy", exception);
+                    throw new SpecificSystemException("ProcessHelper", "There is an errer with ProcessHelper to killAllProcessHierarchy", exception);
                 }
             }
             else throw new NotImplementedException("KillAllProcessHierarchy doesn't impliment for other operation system");
