@@ -34,7 +34,8 @@ namespace CodeStorm.Core.Base
                 if (!File.Exists(outputPath)) throw new DirectoryNotFoundException();
                 string output = await File.ReadAllTextAsync(outputPath);
                 var runnerResult = await runner.RunAsync(input);
-
+                result.ProcessingTimes.Add(result.AcceptedTestNumber, runnerResult.ExecutionTime);
+                result.MemoryUsages.Add(result.AcceptedTestNumber, runnerResult.MemoryUsage);
                 if (!runnerResult.IsSuccessful && String.IsNullOrEmpty(runnerResult.ErrorMessage))
                 {
                     result.ResultType = ResultType.RuntimeError;
@@ -64,8 +65,7 @@ namespace CodeStorm.Core.Base
                 else
                 {
                     result.AcceptedTestNumber++;
-                    result.ProcessingTimes.Add(result.AcceptedTestNumber, runnerResult.ExecutionTime);
-                    result.MemoryUsages.Add(result.AcceptedTestNumber, runnerResult.MemoryUsage);
+
                 }
             }
             if(result.AcceptedTestNumber == totaltestsQuantity)
