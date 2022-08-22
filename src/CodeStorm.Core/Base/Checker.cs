@@ -49,7 +49,10 @@ public class Checker : IChecker
         ITester tester = new Tester(runnerName, runnerArgs, checkerInput.MemoryLimit, checkerInput.TimeLimit);
         DirectoryInfo problemSetDirectory = new DirectoryInfo(checkerInput.ProblemSetPath);
         var testResult = await tester.TestAsync(problemSetDirectory);
-        checkerResult.Result = testResult.ResultType.ToString()+$"({testResult.AcceptedTestNumber})";
+        if (testResult.ResultType == ResultType.Accepted)
+            checkerResult.Result = testResult.ResultType.ToString();
+        else
+            checkerResult.Result = testResult.ResultType.ToString() + $"({testResult.AcceptedTestNumber + 1})";
         checkerResult.ProcessingTimes = testResult.ProcessingTimes;
         checkerResult.MemoryUsages = testResult.MemoryUsages;
         return checkerResult;
