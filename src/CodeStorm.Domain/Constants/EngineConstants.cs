@@ -14,7 +14,7 @@
         /// va foydalanuvchi time limit kiritayotganda vaqt checklanadi
         /// o'lchov birligi millisecond larda
         /// </summary>
-        public const ushort ENGINE_MAX_WAIT_TIME = 2000;
+        public const ushort ENGINE_MAX_WAIT_TIME = 10000;
 
         /// <summary>
         /// Foydalanuvchi har bir test uchun xotira ajratadi 

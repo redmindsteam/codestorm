@@ -38,12 +38,12 @@ class Program
     {
         CheckerInput checkerInput = new CheckerInput()
         {
-            Language = "c",
+            Language = "cpp",
             MemoryLimit = 16000,
             TimeLimit = 2000,
-            MissionPath = "d://CodeStormTest//MissionDirectory",
-            SourceCodePath = "d://CodeStormTest//SourceCodes//1//Accepted//1.c",
-            ProblemSetPath = "d://CodeStormTest//ProblemSets//a+b"
+            MissionPath = @"C:\Users\O'tkirbek\Desktop\",
+            SourceCodePath = @"C:\Users\O'tkirbek\Desktop\5.cpp",
+            ProblemSetPath = @"C:\Users\O'tkirbek\Desktop\2000005"
         };
         IChecker checker = new Checker();
         var result = await checker.CheckAsync(checkerInput);

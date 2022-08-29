@@ -3,11 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.1.32407.343
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CodeStorm.ConsoleApp", "CodeStorm.ConsoleApp\CodeStorm.ConsoleApp.csproj", "{C7055ADA-38DE-4C12-8627-1F3154DE5CD6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CodeStorm.ConsoleApp", "CodeStorm.ConsoleApp\CodeStorm.ConsoleApp.csproj", "{C7055ADA-38DE-4C12-8627-1F3154DE5CD6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CodeStorm.Domain", "CodeStorm.Domain\CodeStorm.Domain.csproj", "{64F300E7-4F25-4127-B55B-2BC334C6E3F2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CodeStorm.Domain", "CodeStorm.Domain\CodeStorm.Domain.csproj", "{64F300E7-4F25-4127-B55B-2BC334C6E3F2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CodeStorm.Core", "CodeStorm.Core\CodeStorm.Core.csproj", "{885896BB-1DD3-4B64-BFFA-AB893838B609}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CodeStorm.Core", "CodeStorm.Core\CodeStorm.Core.csproj", "{885896BB-1DD3-4B64-BFFA-AB893838B609}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CodeStorm.UnitTest", "CodeStorm.UnitTest\CodeStorm.UnitTest.csproj", "{8239D9CB-86C7-48A1-AF87-8FC8A635FF34}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,6 +29,10 @@ Global
 		{885896BB-1DD3-4B64-BFFA-AB893838B609}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{885896BB-1DD3-4B64-BFFA-AB893838B609}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{885896BB-1DD3-4B64-BFFA-AB893838B609}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8239D9CB-86C7-48A1-AF87-8FC8A635FF34}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8239D9CB-86C7-48A1-AF87-8FC8A635FF34}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8239D9CB-86C7-48A1-AF87-8FC8A635FF34}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8239D9CB-86C7-48A1-AF87-8FC8A635FF34}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
