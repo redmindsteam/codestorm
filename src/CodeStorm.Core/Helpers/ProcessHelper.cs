@@ -21,7 +21,7 @@ namespace CodeStorm.Core.Helpers
                 }
                 catch (ArgumentException exception)
                 {
-                    throw new SpecificSystemException("ProcessHelper", "There is an errer with ProcessHelper to killAllProcessHierarchy", exception);
+                    //throw new SpecificSystemException("ProcessHelper", "There is an errer with ProcessHelper to killAllProcessHierarchy", exception);
                 }
 
                 if (processCollection is not null)

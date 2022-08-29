@@ -56,7 +56,7 @@ namespace CodeStorm.Core.Analyzers
                     else break;
                 }
             }
-            catch(Exception exception)
+            catch
             {
                 //throw new SpecificSystemException(this.GetType().Name,"There is an error with MemoryAnalyzer", exception);
             }
