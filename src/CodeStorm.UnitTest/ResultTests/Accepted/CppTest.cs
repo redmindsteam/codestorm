@@ -18,7 +18,7 @@ public class CppTest
         string problemSetPath = ResourceHelper.GetProblemSetDirectory();
         problemSetPath = Path.Combine(problemSetPath, problemSet);
         string sourceCodePath = ResourceHelper.GetSourceCodesDirectory();
-        sourceCodePath = Path.Combine(sourceCodePath, problemSet, "accepted", "main.cpp");
+        sourceCodePath = Path.Combine(sourceCodePath, problemSet, "accepted", "1.cpp");
         CheckerInput checkerInput = new CheckerInput()
         {
             Language = "cpp",

@@ -22,7 +22,7 @@ public class JavaTest
         string problemSetPath = ResourceHelper.GetProblemSetDirectory();
         problemSetPath = Path.Combine(problemSetPath, problemSet);
         string sourceCodePath = ResourceHelper.GetSourceCodesDirectory();
-        sourceCodePath = Path.Combine(sourceCodePath, problemSet, "accepted", "main.java");
+        sourceCodePath = Path.Combine(sourceCodePath, problemSet, "accepted", "Main.java");
         CheckerInput checkerInput = new CheckerInput()
         {
             Language = "java",

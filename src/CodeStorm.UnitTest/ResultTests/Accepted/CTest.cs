@@ -22,7 +22,7 @@ public class CTest
         string problemSetPath = ResourceHelper.GetProblemSetDirectory();
         problemSetPath = Path.Combine(problemSetPath, problemSet);
         string sourceCodePath = ResourceHelper.GetSourceCodesDirectory();
-        sourceCodePath = Path.Combine(sourceCodePath, problemSet, "accepted", "main.c");
+        sourceCodePath = Path.Combine(sourceCodePath, problemSet, "accepted", "2.c");
         CheckerInput checkerInput = new CheckerInput()
         {
             Language = "c",

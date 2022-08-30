@@ -16,6 +16,7 @@ namespace CodeStorm.Core.Checkers.Tools
         public string GetCompiledFileName(string filename)
         {
             if (OperatingSystem.IsWindows()) return Path.GetFileNameWithoutExtension(filename) + ".exe";
+            else if (OperatingSystem.IsLinux()) return Path.GetFileNameWithoutExtension(filename) + ".out";
             else return filename;
         }
     }
