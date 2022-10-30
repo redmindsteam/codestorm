@@ -1,5 +1,4 @@
 ﻿using CodeStorm.Core.Helpers;
-using CodeStorm.Domain.Exceptions;
 using System.Diagnostics;
 
 namespace CodeStorm.Core.Analyzers
@@ -25,7 +24,7 @@ namespace CodeStorm.Core.Analyzers
             thread.Start();
         }
 
-        public void Stop() 
+        public void Stop()
         {
             if (isActive) isActive = false;
         }
@@ -58,8 +57,7 @@ namespace CodeStorm.Core.Analyzers
             }
             catch
             {
-                //throw new SpecificSystemException(this.GetType().Name,"There is an error with MemoryAnalyzer", exception);
             }
-        }        
+        }
     }
 }

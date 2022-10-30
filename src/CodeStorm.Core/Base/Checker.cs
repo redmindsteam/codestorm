@@ -24,7 +24,7 @@ public class Checker : IChecker
         {
             var checker = checkerFactory.GetCompiledChecker(checkerInput.Language);
             string compiledFileName = checker.GetCompiledFileName(Path.GetFileName(checkerInput.SourceCodePath));
-            string compiledFilePath = Path.Combine(checkerInput.MissionPath, compiledFileName);
+            string compiledFilePath = Path.Combine(checkerInput.TemporaryPath, compiledFileName);
             string compilerName = checker.GetCompilerName();
             string compilerArgs = checker.GetCompilerArgs(checkerInput.SourceCodePath, compiledFilePath);
             var compilationResult = await compiler.CompileAsync(compilerName, compilerArgs, compiledFilePath);

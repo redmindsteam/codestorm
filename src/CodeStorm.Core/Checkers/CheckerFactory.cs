@@ -14,12 +14,13 @@ namespace CodeStorm.Core.Checkers
             _compiledCheckers = new Dictionary<string, ICompiled>()
             {
                 { "cpp", new CppChecker() },
-                { "c", new CChecker() }
+                { "c", new CChecker() },
+                { "java", new JavaChecker() }
             };
 
             _interpretedCheckers = new Dictionary<string, IInterpreted>()
             {
-                { "py", new PythonChecker() }
+                { "py3", new PythonChecker() }
             };
         }
 

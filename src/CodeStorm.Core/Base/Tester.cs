@@ -24,9 +24,9 @@ namespace CodeStorm.Core.Base
             var result = new TestResult();
             IRunner runner = new Runner(runnerName, runnerArgs, memoryLimit, timeLimit);
 
-            var testDirs = problemSetDirectory.GetDirectories();
+            var testDirs = problemSetDirectory.GetDirectories().OrderBy(dir => dir.Name).ToArray();
             int totaltestsQuantity = testDirs.Length;
-            for(ushort i=0; i<totaltestsQuantity; i++)
+            for (ushort i = 0; i < totaltestsQuantity; i++)
             {
                 string inputPath = Path.Combine(testDirs[i].FullName, NameConstants.INPUT_FILE_NAME);
                 string input = await File.ReadAllTextAsync(inputPath);
@@ -36,7 +36,7 @@ namespace CodeStorm.Core.Base
                 var runnerResult = await runner.RunAsync(input);
                 result.ProcessingTimes.Add(result.AcceptedTestNumber, runnerResult.ExecutionTime);
                 result.MemoryUsages.Add(result.AcceptedTestNumber, runnerResult.MemoryUsage);
-                if (!runnerResult.IsSuccessful && String.IsNullOrEmpty(runnerResult.ErrorMessage))
+                if (!runnerResult.IsSuccessful && !String.IsNullOrEmpty(runnerResult.ErrorMessage))
                 {
                     result.ResultType = ResultType.RuntimeError;
                     result.ErrorMessage = runnerResult.ErrorMessage;
@@ -52,7 +52,7 @@ namespace CodeStorm.Core.Base
                     result.ResultType = ResultType.MemoryLimitExceeded;
                     return result;
                 }
-                else if (String.IsNullOrEmpty(runnerResult.Result))
+                else if (String.IsNullOrEmpty(runnerResult.Result) && runnerResult.Result != output)
                 {
                     result.ResultType = ResultType.PresentationError;
                     return result;
@@ -65,10 +65,9 @@ namespace CodeStorm.Core.Base
                 else
                 {
                     result.AcceptedTestNumber++;
-
                 }
             }
-            if(result.AcceptedTestNumber == totaltestsQuantity)
+            if (result.AcceptedTestNumber == totaltestsQuantity)
             {
                 result.ResultType = ResultType.Accepted;
                 return result;

@@ -18,19 +18,19 @@ namespace CodeStorm.Core.Base
         private Process process = new Process();
         private Stopwatch stopwatch = new Stopwatch();
 
-        public Runner(string runnerName, string runnerArgs, 
+        public Runner(string runnerName, string runnerArgs,
             uint memoryLimit, ushort timeLimit)
         {
             process.StartInfo = _processInfo;
             process.OutputDataReceived += (obj, e) =>
             {
-                if (!string.IsNullOrEmpty(e.Data)) 
-                    resultStringBuilder.Append(e.Data+"\n");
+                if (!string.IsNullOrEmpty(e.Data))
+                    resultStringBuilder.Append(e.Data + "\n");
             };
             process.ErrorDataReceived += (obj, e) =>
             {
-                if (!string.IsNullOrEmpty(e.Data)) 
-                    errorStringBuilder.Append(e.Data+"\n");
+                if (!string.IsNullOrEmpty(e.Data))
+                    errorStringBuilder.Append(e.Data + "\n");
             };
             process.StartInfo.FileName = runnerName;
             process.StartInfo.Arguments = runnerArgs;

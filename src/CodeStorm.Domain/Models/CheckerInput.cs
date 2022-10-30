@@ -26,7 +26,7 @@
         /// Kodni qayerda kompilatsiya qilish kerakligi, 
         /// va qayerda uni boshqarish kerakligi manzili
         /// </summary>
-        public string MissionPath { get; set; } = String.Empty;
+        public string TemporaryPath { get; set; } = String.Empty;
 
         /// <summary>
         /// Har bir test uchun xotiradan ishlatilishi mumkin bo'lgan maksimum qiymat

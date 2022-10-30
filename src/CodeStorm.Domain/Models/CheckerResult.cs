@@ -1,6 +1,4 @@
-﻿using CodeStorm.Domain.Enums;
-
-namespace CodeStorm.Domain.Models
+﻿namespace CodeStorm.Domain.Models
 {
     /// <summary>
     /// Dastur qaytaradigan asosiy natija uchun
