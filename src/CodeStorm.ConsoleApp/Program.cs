@@ -38,12 +38,12 @@ class Program
     {
         CheckerInput checkerInput = new CheckerInput()
         {
-            Language = "cpp",
+            Language = "py3",
             MemoryLimit = 16000,
             TimeLimit = 2000,
-            MissionPath = @"C:\Users\O'tkirbek\Desktop\",
-            SourceCodePath = @"C:\Users\O'tkirbek\Desktop\5.cpp",
-            ProblemSetPath = @"C:\Users\O'tkirbek\Desktop\2000005"
+            TemporaryPath = @"C:\Users\O'tkirbek\Desktop\",
+            SourceCodePath = @"C:\Users\O'tkirbek\Desktop\init.py",
+            ProblemSetPath = @"D:\DEVELOPMENT\ASP.NET\API\codestorm-webapi\dependencies\IdentityFiles\92e6743d-6a60-43ee-a295-2b4f53b8fa0a\4000003"
         };
         IChecker checker = new Checker();
         var result = await checker.CheckAsync(checkerInput);
@@ -55,5 +55,7 @@ class Program
 
         Console.WriteLine("Memories-->");
         foreach (var i in result.MemoryUsages) Console.WriteLine(i.Key + '-' + i.Value + " KB");
+
+        Console.WriteLine(result.ErrorMessage);
     }
 }

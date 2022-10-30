@@ -7,6 +7,6 @@ namespace CodeStorm.Core.Checkers.Tools
         public string GetRunnerArgs(string sourceCodeFilePath)
             => sourceCodeFilePath;
 
-        public string GetRunnerName() => "python3";
+        public string GetRunnerName() => "py";
     }
 }
